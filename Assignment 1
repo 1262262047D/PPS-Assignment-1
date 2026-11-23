@@ -1,0 +1,36 @@
+#include <stdio.h>
+
+int same(const char *a, const char *b)
+{
+    while (*a && *b) {
+        if (*a != *b) return 0;
+        a++;
+        b++;
+    }
+    return *a == *b;
+}
+
+int main(void)
+{
+    char email[50];
+    char password[30];
+
+    const char *correct_email = "user@gmail.com";
+    const char *correct_pass  = "12345";
+
+    printf(" Gmail Login \n");
+
+    printf("Enter email: ");
+    scanf("%49s", email);
+
+    printf("Enter password: ");
+    scanf("%29s", password);
+
+    if (same(email, correct_email) && same(password, correct_pass)) {
+        printf("\nLogin successful! Welcome.\n");
+    } else {
+        printf("\nLogin failed: wrong email or password.\n");
+    }
+
+    return 0;
+}
